@@ -293,3 +293,48 @@
 .heat-more:hover { background: #fff; color: #111; border-color: #fff; }
 .heat-more:hover .heat-more__arrow { transform: translateX(3px); }
 .heat-more:focus-visible { outline: 1px solid var(--heat-gold); outline-offset: 4px; }
+
+/* Desktop: the neighbouring cards peek in at both sides, blurred and fading into the page. */
+@media (min-width: 1024px) {
+  .heat-stage { --heat-peek: min(170px, max(40px, calc((100vw - 1396px) / 2 - 8px))); }
+  .heat-stage .heat-grid {
+    margin-inline: calc(var(--heat-peek) * -1);
+    padding-inline: var(--heat-peek);
+    scroll-padding-inline: var(--heat-peek);
+  }
+  .heat-stage::before,
+  .heat-stage::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--heat-peek);
+    z-index: 2;
+    pointer-events: none;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+  .heat-stage::before {
+    right: 100%;
+    background: linear-gradient(90deg, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.2) 100%);
+  }
+  .heat-stage::after {
+    left: 100%;
+    background: linear-gradient(270deg, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.2) 100%);
+  }
+}
+/* Leave at least ~150px at each side so the neighbours actually show (the gap is 80px). */
+@media (min-width: 1024px) {
+  .heat-stage {
+    margin-inline: calc(50% - min(698px, 50vw - 150px));
+    --heat-peek: min(170px, max(40px, calc((100vw - min(1396px, 100vw - 300px)) / 2 - 8px)));
+  }
+}
+.heat-grid > .heat-card { min-width: 0; }
+@media (min-width: 1024px) and (max-width: 1279px) { .heat-grid, .heat-stage { --heat-per-view: 2; } }
+
+/* Hover: the photo brightens a little (base stays at --heat-lit). */
+.heat-card__media > img { transition: filter 600ms var(--heat-ease); }
+.heat-card:hover .heat-card__media > img,
+.heat-card:focus-visible .heat-card__media > img { filter: brightness(0.82) saturate(1); }
+@media (prefers-reduced-motion: reduce) { .heat-card__media > img { transition: none; } }

@@ -1,19 +1,27 @@
 /* Facility area photos: auto-sliding large photo, paused on hover. */
 .fs-stage { outline: none; }
 .fs-stage:focus-visible { box-shadow: 0 0 0 2px #c9b27a; }
+/* The frame is a horizontal scroller: one photo per "page", snapping into place. */
 .fs-track {
   position: absolute;
   inset: 0;
   display: flex;
-  transition: transform 1100ms cubic-bezier(0.65, 0, 0.35, 1);
-  will-change: transform;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
 }
+.fs-track::-webkit-scrollbar { display: none; }
 .fs-slide {
   flex: 0 0 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  user-select: none;
 }
 
 /* progress line + counter at the bottom of the photo */
@@ -63,12 +71,10 @@
 }
 .fs-thumb.is-active::after { box-shadow: inset 0 0 0 2px #c9b27a; }
 
-@media (prefers-reduced-motion: reduce) {
-  .fs-track { transition: none; }
-}
+
 
 /* Prev / next arrows on the photo (thumbnail grid is hidden by JS). */
-.fs-stage { touch-action: pan-y; }
+
 .fs-arrow {
   position: absolute; top: 50%; z-index: 3;
   width: 46px; height: 46px; margin-top: -23px;
@@ -83,3 +89,36 @@
 .fs-arrow--next { right: 14px; }
 .fs-arrow:hover { background: #fff; color: #111; opacity: 1; }
 .fs-arrow:focus-visible { outline: 2px solid #c9b27a; outline-offset: 2px; }
+
+/* Large screens: text on the left, the photo frame on the right at the same height. */
+@media (min-width: 1024px) {
+  .fs-area .lg\:grid-cols-12 { align-items: stretch; }
+  .fs-area .lg\:col-span-5 { position: static; }
+  .fs-area .lg\:col-span-7 { display: flex; flex-direction: column; }
+  .fs-area .fs-stage { flex: none; aspect-ratio: 2 / 1; min-height: 0; margin-block: auto; }
+}
+
+/* Pinned (large screens): the area stays on screen while the page scroll moves the photos sideways. */
+.fs-pinned .fs-inner { position: sticky; }
+.fs-pinned .fs-track { scroll-snap-type: none; overflow-x: hidden; }
+.fs-pinned .fs-progress span { transition: transform 0.08s linear; }
+/* Slightly tighter text column on large screens so each area fits on screen while pinned. */
+@media (min-width: 1024px) {
+  .fs-area .fs-inner ul.mt-8 { margin-top: 22px; padding-top: 20px; }
+  .fs-area .fs-inner .space-y-5 > :not(:first-child) { margin-top: 14px; }
+}
+
+/* Wide, letterbox-like frame on every screen size. */
+.fs-area .fs-stage { aspect-ratio: 16 / 9; }
+@media (min-width: 1024px) { .fs-area .fs-stage { aspect-ratio: 2 / 1; } }
+
+/* Instant hop used by the seamless loop (no snap / smooth scroll for that one move). */
+.fs-track.is-jumping { scroll-snap-type: none; scroll-behavior: auto; }
+
+/* Bigger photos: wider area, photo column takes 8/12, taller 3:2 frame. */
+@media (min-width: 1024px) {
+  .fs-area .fs-inner { max-width: min(1400px, calc(100vw - 96px)); }
+  .fs-area .lg\:col-span-5 { grid-column: span 4 / span 4; }
+  .fs-area .lg\:col-span-7 { grid-column: span 8 / span 8; }
+  .fs-area .fs-stage { aspect-ratio: 3 / 2; }
+}

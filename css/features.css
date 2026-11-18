@@ -18,7 +18,7 @@
   position: relative;
   overflow: hidden;
   /* top = floating header logo height + its top padding (see #floating-header) + breathing room */
-  padding: calc(clamp(72px, 8.5vw, 124px) + clamp(8px, 1.2vw, 18px) + 16px) 0 clamp(28px, 4vh, 44px);
+  padding: calc(clamp(56px, 6.2vw, 92px) + clamp(4px, .5vw, 8px) + 16px) 0 clamp(28px, 4vh, 44px);
 }
 
 /* Warm light that bleeds behind the photos (follows the pointer on desktop). */

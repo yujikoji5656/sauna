@@ -1,0 +1,18 @@
+/* #features: dim photo behind the horizontal scroller (saunatiger.com-like mood). */
+.tf__bg {
+  position: absolute; top: -4%; bottom: -4%; left: -4%; right: 38%;
+  pointer-events: none;
+  background: url(../images/gallery-6.jpg) center 55% / cover no-repeat;
+  /* low-res source: a soft blur + darkening turns it into atmosphere rather than a picture */
+  filter: blur(6px) brightness(0.26) saturate(0.8) sepia(0.35) contrast(1.05);
+  transform: scale(1.04);
+}
+/* Vignette: right side and top/bottom melt into the black page (right of the screen stays black). */
+.tf__bg::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 75%, #000 100%),
+    linear-gradient(180deg, #000 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 72%, #000 100%),
+    radial-gradient(120% 95% at 30% 55%, rgba(0,0,0,0) 25%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.95) 100%);
+}
+.tf__pin > .tf__head, .tf__pin > .tf__viewport { position: relative; z-index: 1; }

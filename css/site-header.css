@@ -7,17 +7,17 @@
 }
 #site-header > div {
   max-width: none; height: auto;
-  padding: clamp(8px, 1.2vw, 18px) clamp(16px, 2vw, 32px) 0 clamp(4px, .6vw, 12px);
+  padding: clamp(4px, .5vw, 8px) clamp(16px, 2vw, 32px) 0 clamp(4px, .6vw, 12px);
   align-items: flex-start;
 }
 #site-header > div > a img {
-  height: clamp(72px, 8.5vw, 124px); width: auto;
+  height: clamp(56px, 6.2vw, 92px); width: auto;
   filter: drop-shadow(0 1px 8px rgba(0,0,0,.45));
 }
 #site-header nav {
-  gap: clamp(12px, 1.6vw, 24px);
-  margin-top: clamp(26px, 2.9vw, 42px);
-  font-size: clamp(13px, 1.05vw, 16px);
+  gap: clamp(10px, 1.2vw, 18px);
+  margin-top: clamp(16px, 2vw, 28px);
+  font-size: clamp(12px, .9vw, 14px);
 }
 /* Tag-shaped links: thin frame with a cut bottom-right corner */
 #site-header nav a {
@@ -57,4 +57,4 @@
 #site-header button { margin-top: clamp(16px, 4vw, 24px); filter: drop-shadow(0 1px 6px rgba(0,0,0,.6)); }
 
 /* Text pages (no hero photo): push the content below the floating logo + menu. */
-.site-header-offset { padding-top: calc(clamp(72px, 8.5vw, 124px) + clamp(8px, 1.2vw, 18px)); }
+.site-header-offset { padding-top: calc(clamp(56px, 6.2vw, 92px) + clamp(4px, .5vw, 8px)); }
