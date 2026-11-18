@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ご予約 | Thermal Climb Studio Fuji</title>
+<meta name="description" content="Thermal Climb Studio Fuji の日帰りサウナ予約。ご利用時間（2時間・5時間）をお選びください。">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../css/0h_nvp_7jebjj.css">
+<link rel="stylesheet" href="../css/book.css">
+</head>
+<body class="bk">
+  <header class="bk__head">
+    <a class="bk__brand" href="../">
+      <span class="bk__brand-name">Thermal Climb Studio Fuji</span>
+      <span class="bk__brand-sub">日帰りサウナ予約</span>
+    </a>
+  </header>
+
+  <main class="bk__main">
+    <ol class="bk__steps" aria-label="予約の流れ">
+      <li class="is-current" aria-current="step">プラン</li>
+      <li>日時</li>
+      <li>お客様情報</li>
+      <li>確認</li>
+    </ol>
+
+    <h1 class="bk__title">ご利用時間を選択してください</h1>
+
+    <div class="bk__tabs" role="tablist" aria-label="料金区分">
+      <button type="button" class="bk__tab" role="tab" id="tab-general" aria-controls="panel-general" aria-selected="true">一般</button>
+      <button type="button" class="bk__tab" role="tab" id="tab-member" aria-controls="panel-member" aria-selected="false" tabindex="-1">会員</button>
+    </div>
+
+    <form class="bk__form" action="https://www.sauna-club.jp/book" method="get">
+      <fieldset class="bk__panel" role="tabpanel" id="panel-general" aria-labelledby="tab-general">
+        <legend class="bk__sr">一般料金のコース</legend>
+        <label class="bk__plan">
+          <input type="radio" name="plan" value="general-5h" checked>
+          <span class="bk__radio" aria-hidden="true"></span>
+          <span class="bk__plan-body">
+            <span class="bk__plan-name">5時間コース</span>
+            <span class="bk__badge">おすすめ</span>
+          </span>
+          <span class="bk__price"><span class="bk__yen">¥</span>8,800<span class="bk__tax">（税込）</span></span>
+        </label>
+        <label class="bk__plan">
+          <input type="radio" name="plan" value="general-2h">
+          <span class="bk__radio" aria-hidden="true"></span>
+          <span class="bk__plan-body">
+            <span class="bk__plan-name">2時間コース</span>
+            <span class="bk__plan-note">平日のみ</span>
+          </span>
+          <span class="bk__price"><span class="bk__yen">¥</span>3,500<span class="bk__tax">（税込）</span></span>
+        </label>
+      </fieldset>
+
+      <fieldset class="bk__panel" role="tabpanel" id="panel-member" aria-labelledby="tab-member" hidden disabled>
+        <legend class="bk__sr">会員料金のコース</legend>
+        <label class="bk__plan">
+          <input type="radio" name="plan-member" value="member-5h" checked>
+          <span class="bk__radio" aria-hidden="true"></span>
+          <span class="bk__plan-body">
+            <span class="bk__plan-name">5時間コース</span>
+            <span class="bk__badge">おすすめ</span>
+          </span>
+          <span class="bk__price"><span class="bk__yen">¥</span>6,000<span class="bk__tax">（税込）</span></span>
+        </label>
+        <label class="bk__plan">
+          <input type="radio" name="plan-member" value="member-2h">
+          <span class="bk__radio" aria-hidden="true"></span>
+          <span class="bk__plan-body">
+            <span class="bk__plan-name">2時間コース</span>
+          </span>
+          <span class="bk__price"><span class="bk__yen">¥</span>2,480<span class="bk__tax">（税込）</span></span>
+        </label>
+        <label class="bk__plan">
+          <input type="radio" name="plan-member" value="member-10h">
+          <span class="bk__radio" aria-hidden="true"></span>
+          <span class="bk__plan-body">
+            <span class="bk__plan-name">10時間コース</span>
+          </span>
+          <span class="bk__price"><span class="bk__yen">¥</span>10,000<span class="bk__tax">（税込）</span></span>
+        </label>
+        <p class="bk__memo">会員料金のご利用には会員登録が必要です。平日個人会員の方は平日のみご利用いただけます。<a href="../plans/membership/">会員プランを見る</a></p>
+      </fieldset>
+
+      <div class="bk__actions">
+        <button type="submit" class="bk__next">日時を選ぶ<span aria-hidden="true" class="bk__arrow">→</span></button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="bk__foot">
+    <p>お電話でのご予約・お問い合わせ：<a href="tel:08063301447">080-6330-1447</a>（10:00〜20:00／火曜定休）</p>
+  </footer>
+
+  <script src="../js/book.js" defer></script>
+</body>
+</html>

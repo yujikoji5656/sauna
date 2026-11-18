@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ケロサウナ｜Thermal Climb Studio Fuji</title>
+<meta name="description" content="森と呼応する、200年のログ。樹齢200年以上のフィンランド産ケロ材を使用した、日本最大級のケロサウナ。森を見渡すロケーションで深部体温を丁寧に上げる。"/>
+<link rel="icon" href="../../icon.png"/>
+<link rel="stylesheet" href="../../css/0h_nvp_7jebjj.css"/>
+<link rel="stylesheet" href="../../css/0m20eisfmp-5b.css"/>
+<link rel="stylesheet" href="../../css/sauna-page.css"/>
+</head>
+<body class="sp">
+<header class="sp__bar">
+  <a class="sp__back" href="../../#saunas">&#8592; サウナ一覧</a>
+  <a class="sp__book" href="../../book/">予約する &#8599;</a>
+</header>
+<main class="sp__main">
+  <article class="sp__body">
+    <div class="sp__media">
+      <img class="sp__img" src="../../images/sauna-kelo-noflag.jpg" alt="ケロサウナ" decoding="async" fetchpriority="high"/>
+      <div class="sp__flags"><img class="sp__flag" src="../../images/flags/fi.svg" alt="フィンランド国旗" decoding="async"/></div>
+      <a class="sp__zoom" href="../../images/sauna-kelo-noflag.jpg" target="_blank" rel="noopener">写真を拡大 &#8599;</a>
+    </div>
+    <div class="sp__copy">
+      <p class="sp__eyebrow">Finland / Mori Studio</p>
+      <h1 class="sp__name">ケロサウナ</h1>
+      <p class="sp__tagline">森と呼応する、200年のログ。</p>
+      <p class="sp__desc">樹齢200年以上のフィンランド産ケロ材を使用した、日本最大級のケロサウナ。森を見渡すロケーションで深部体温を丁寧に上げる。</p>
+    </div>
+  </article>
+</main>
+<nav class="sp__steps" aria-label="ほかのサウナ">
+  <a class="sp__step" data-sp-prev href="../camp/" aria-label="前のサウナ：キャンプ（エコ）サウナ">&#8592; PREV</a>
+  <span>01 / 05</span>
+  <a class="sp__step" data-sp-next href="../thermarium/" aria-label="次のサウナ：テルマリウム">NEXT &#8594;</a>
+</nav>
+<script>
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  var link = e.key === "ArrowLeft" ? document.querySelector("[data-sp-prev]")
+           : e.key === "ArrowRight" ? document.querySelector("[data-sp-next]")
+           : e.key === "Escape" ? document.querySelector(".sp__back") : null;
+  if (link) window.location.href = link.href;
+});
+</script>
+</body>
+</html>

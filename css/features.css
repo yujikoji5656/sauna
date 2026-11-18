@@ -1,0 +1,146 @@
+/* "Features" — pinned section whose row of features slides sideways as you scroll. */
+.tf {
+  --tf-gold: #c9b27a;
+  --tf-gold-soft: #b8a36a;
+  --tf-display: rgba(184, 163, 106, 0.42);
+  --tf-ink: #f4efe8;
+  --tf-mute: rgba(244, 239, 232, 0.66);
+  --tf-line: rgba(255, 255, 255, 0.14);
+  --tf-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --tf-gutter: clamp(16px, 4vw, 72px);
+  --tf-gx: 30%;
+  --tf-gy: 60%;
+  position: relative;
+  background: #000;
+  color: var(--tf-ink);
+}
+.tf__pin {
+  position: relative;
+  overflow: hidden;
+  /* top = floating header logo height + its top padding (see #floating-header) + breathing room */
+  padding: calc(clamp(72px, 8.5vw, 124px) + clamp(8px, 1.2vw, 18px) + 16px) 0 clamp(28px, 4vh, 44px);
+}
+
+/* Warm light that bleeds behind the photos (follows the pointer on desktop). */
+.tf__glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(38vw 30vw at var(--tf-gx) var(--tf-gy), rgba(196, 140, 72, 0.30), rgba(120, 80, 40, 0.10) 45%, transparent 70%);
+}
+
+/* Heading */
+.tf__head {
+  position: relative; padding: 0 var(--tf-gutter);
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.tf__intro { text-align: left; }
+.tf__eyebrow {
+  font-family: var(--font-geist-sans), "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--tf-gold);
+}
+.tf__title {
+  margin-top: 10px;
+  font-family: "Shippori Mincho Title", "Shippori Mincho", "Noto Serif JP", serif;
+  font-weight: 400; font-size: clamp(15px, 1.3vw, 19px); letter-spacing: .14em; color: var(--tf-ink);
+}
+
+/* Horizontal row */
+.tf__viewport { position: relative; margin-top: clamp(32px, 7vh, 88px); }
+.tf__list {
+  display: flex; gap: clamp(64px, 9vw, 160px);
+  margin: 0; padding: 0 var(--tf-gutter); list-style: none;
+  width: max-content; will-change: transform;
+}
+.tf__item {
+  --tf-h: clamp(260px, 50vh, 520px);
+  display: flex; align-items: flex-end; gap: clamp(20px, 2.2vw, 36px);
+  flex: none;
+}
+.tf__fig { position: relative; margin: 0; overflow: hidden; background: #14110e; flex: none; }
+.tf__fig img {
+  position: absolute; top: 0; left: -8%; width: 116%; height: 100%; max-width: none;
+  object-fit: cover; transform: translate3d(var(--tf-px, 0px), 0, 0);
+  will-change: transform; backface-visibility: hidden;
+}
+.tf__fig--main { height: var(--tf-h); width: calc(var(--tf-h) * 1.22); }
+.tf__fig--sub  { height: calc(var(--tf-h) * .8); width: calc(var(--tf-h) * .68); }
+
+.tf__copy {
+  position: relative; flex: none; align-self: center;
+  width: clamp(280px, 30vw, 460px); margin-left: clamp(8px, 2vw, 40px);
+}
+.tf__label, .tf__name, .tf__text, .tf__link { position: relative; z-index: 1; }
+.tf__label {
+  font-family: var(--font-geist-sans), "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--tf-gold);
+}
+.tf__name {
+  margin-top: 14px;
+  font-family: "Shippori Mincho Title", "Shippori Mincho", "Noto Serif JP", serif;
+  font-weight: 400; font-size: clamp(22px, 2vw, 30px); line-height: 1.5; letter-spacing: .12em;
+}
+.tf__name em {
+  display: block; font-style: normal; color: var(--tf-gold-soft);
+  font-size: 1.5em; letter-spacing: .04em; margin-top: 2px;
+}
+.tf__text { margin-top: 22px; font-size: 13px; line-height: 2.3; letter-spacing: .06em; color: var(--tf-mute); }
+.tf__link {
+  display: inline-flex; align-items: center; gap: 12px; margin-top: 24px; padding-bottom: 6px;
+  font-size: 13px; font-weight: 600; letter-spacing: .08em; color: var(--tf-ink);
+  border-bottom: 1px solid rgba(244, 239, 232, .5); transition: color .3s ease, border-color .3s ease;
+}
+.tf__link:hover { color: var(--tf-gold); border-color: var(--tf-gold); }
+.tf__link svg { width: 12px; height: 12px; transition: transform .3s ease; }
+.tf__link:hover svg { transform: translate(2px, -2px); }
+
+/* Footer: counter + progress */
+.tf__foot {
+  position: relative; display: flex; align-items: center; gap: 20px;
+  margin: clamp(28px, 5vh, 56px) var(--tf-gutter) 0;
+  font-family: var(--font-geist-sans), sans-serif; font-size: 11px; letter-spacing: .2em; color: rgba(244, 239, 232, .55);
+}
+.tf__count b { font-weight: 500; color: var(--tf-gold); }
+.tf__bar { position: relative; flex: 1; height: 1px; background: var(--tf-line); }
+.tf__bar i { position: absolute; inset: 0; background: var(--tf-gold-soft); transform-origin: left; transform: scaleX(var(--tf-progress, 0)); }
+.tf__hint { text-transform: uppercase; }
+
+/* Fade-up as each piece slides into view (only once JS arms it). */
+.tf.is-armed .tf-fade {
+  opacity: 0; transform: translate3d(0, 40px, 0);
+  transition: opacity 1.4s cubic-bezier(0.25, 0.1, 0.25, 1), transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tf.is-armed .tf__fig--sub.tf-fade { transition-delay: .15s; }
+.tf.is-armed .tf__copy.tf-fade { transition-delay: .3s; }
+.tf.is-armed .tf-fade.is-in { opacity: 1; transform: none; }
+
+/* ---------- Pinned horizontal mode (JS on, wide enough) ---------- */
+.tf.is-pinned { height: var(--tf-run, 300vh); }
+.tf.is-pinned .tf__pin {
+  position: sticky; top: 0; height: 100vh; height: 100svh;
+  display: flex; flex-direction: column;
+}
+.tf.is-pinned .tf__viewport { flex: 1; display: flex; align-items: center; min-height: 0; }
+
+/* ---------- Fallback: swipe sideways (phones / no JS / reduced motion) ---------- */
+.tf:not(.is-pinned) .tf__viewport {
+  overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; padding-bottom: 8px;
+}
+.tf:not(.is-pinned) .tf__viewport::-webkit-scrollbar { display: none; }
+.tf:not(.is-pinned) .tf__item { scroll-snap-align: start; scroll-margin-left: var(--tf-gutter); }
+.tf:not(.is-pinned) .tf__foot { display: none; }
+
+@media (max-width: 767px) {
+  .tf__head { flex-direction: column; align-items: flex-start; }
+  .tf__intro { text-align: left; }
+  .tf__list { gap: 56px; }
+  .tf__item { --tf-h: 240px; flex-wrap: wrap; width: calc(100vw - 2 * var(--tf-gutter)); align-items: flex-end; }
+  .tf__fig--main { width: 62%; height: auto; aspect-ratio: 4 / 5; }
+  .tf__fig--sub { width: calc(38% - 20px); height: auto; aspect-ratio: 3 / 4; }
+  .tf__copy { width: 100%; margin: 12px 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tf *, .tf *::before { transition: none !important; }
+  .tf.is-armed .tf-fade { opacity: 1; transform: none; }
+}
