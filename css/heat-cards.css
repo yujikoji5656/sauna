@@ -266,3 +266,30 @@
   .heat-grid, .heat-stage { --heat-gap: 80px; }
   .heat-stage { margin-inline: calc(50% - min(698px, 50vw - 48px)); }
 }
+
+/* Heading uses the same type as the feature titles ("熱の登山"): light mincho, open tracking. */
+#saunas h2 {
+  font-family: "Shippori Mincho Title", "Shippori Mincho", "Noto Serif JP", serif;
+  font-weight: 400;
+  letter-spacing: .12em;
+  line-height: 1.5;
+}
+
+/* Keep the light heading on one line on desktop (it sits in a narrow max-w-2xl column). */
+#saunas h2 { letter-spacing: .06em; }
+@media (min-width: 900px) {
+  #saunas h2 { margin-inline: -140px; }
+}
+
+/* "施設・全エリアの詳細を見る": white, thin, outlined button (same look as the booking page's 予約する). */
+.heat-more {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 14px 28px;
+  border: 1px solid rgba(244, 239, 232, .7); border-radius: 2px;
+  color: #fff; font-size: 15px; font-weight: 300; letter-spacing: .2em;
+  transition: background .3s var(--heat-ease), color .3s var(--heat-ease), border-color .3s var(--heat-ease);
+}
+.heat-more__arrow { transition: transform .3s var(--heat-ease); }
+.heat-more:hover { background: #fff; color: #111; border-color: #fff; }
+.heat-more:hover .heat-more__arrow { transform: translateX(3px); }
+.heat-more:focus-visible { outline: 1px solid var(--heat-gold); outline-offset: 4px; }

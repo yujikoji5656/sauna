@@ -15,13 +15,13 @@
   transform: none;
   will-change: auto;
   filter: brightness(0.86) contrast(1.06) saturate(1.08) sepia(0.12);
-  /* Fade on all four sides: left/right (wide on the right) x top/bottom */
+  /* Fade on top and bottom only (no left/right fade; first layer is fully opaque) */
   -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.6) 3%, #000 7%, #000 80%, rgba(0, 0, 0, 0.5) 90%, transparent 100%),
+    linear-gradient(90deg, #000, #000),
     linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 3%, #000 7%, #000 93%, rgba(0, 0, 0, 0.6) 97%, transparent 100%);
   -webkit-mask-composite: source-in;
   mask-image:
-    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.6) 3%, #000 7%, #000 80%, rgba(0, 0, 0, 0.5) 90%, transparent 100%),
+    linear-gradient(90deg, #000, #000),
     linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 3%, #000 7%, #000 93%, rgba(0, 0, 0, 0.6) 97%, transparent 100%);
   mask-composite: intersect;
 }
@@ -31,8 +31,6 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 22%, transparent 75%, rgba(0, 0, 0, 0.38));
-  -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent 100%);
-  mask-image: linear-gradient(90deg, #000 60%, transparent 100%);
   pointer-events: none;
 }
 
@@ -71,11 +69,11 @@
   }
   .tf__item--hero .tf__fig--main img {
     -webkit-mask-image:
-      linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%),
+      linear-gradient(90deg, #000, #000),
       linear-gradient(180deg, transparent 0%, #000 6%, #000 90%, transparent 100%);
     -webkit-mask-composite: source-in;
     mask-image:
-      linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%),
+      linear-gradient(90deg, #000, #000),
       linear-gradient(180deg, transparent 0%, #000 6%, #000 90%, transparent 100%);
     mask-composite: intersect;
   }
@@ -84,32 +82,4 @@
     mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
   }
   .tf__item--hero .tf__copy { width: 100%; }
-}
-
-/* Features items 02 & 03: the two photos overlap and every edge dissolves into the black. */
-.tf__item--blend { --tf-overlap: calc(var(--tf-h) * 0.3); }
-.tf__item--blend .tf__fig { background: transparent; overflow: visible; }
-.tf__item--blend .tf__fig img {
-  left: 0;
-  width: 100%;
-  transform: none;
-  will-change: auto;
-  /* fade on the img itself: a mask on the figure is skipped while the img has its own layer */
-  -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
-  mask-composite: intersect;
-}
-.tf__item--blend .tf__fig--sub {
-  z-index: 1;
-  margin-left: calc(var(--tf-overlap) * -1);
-  margin-bottom: calc(var(--tf-h) * -0.06);
-}
-
-@media (max-width: 767px) {
-  .tf__item--blend .tf__fig--sub { margin-left: -14%; margin-bottom: -4%; width: calc(38% + 14% - 20px); }
 }

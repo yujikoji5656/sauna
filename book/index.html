@@ -8,6 +8,7 @@
 <link rel="icon" href="../icon.png">
 <link rel="stylesheet" href="../css/0h_nvp_7jebjj.css">
 <link rel="stylesheet" href="../css/book.css">
+<link rel="stylesheet" href="../css/book-plan.css">
 </head>
 <body class="bk">
   <header class="bk__head">
@@ -32,7 +33,7 @@
       <button type="button" class="bk__tab" role="tab" id="tab-member" aria-controls="panel-member" aria-selected="false" tabindex="-1">会員</button>
     </div>
 
-    <form class="bk__form" action="https://www.sauna-club.jp/book" method="get">
+    <form class="bk__form" action="date/" method="get">
       <fieldset class="bk__panel" role="tabpanel" id="panel-general" aria-labelledby="tab-general">
         <legend class="bk__sr">一般料金のコース</legend>
         <label class="bk__plan">
@@ -43,6 +44,7 @@
             <span class="bk__badge">おすすめ</span>
           </span>
           <span class="bk__price"><span class="bk__yen">¥</span>8,800<span class="bk__tax">（税込）</span></span>
+          <span class="bk__reserve" aria-hidden="true">予約する<span class="bk__reserve-arrow">&#8594;</span></span>
         </label>
         <label class="bk__plan">
           <input type="radio" name="plan" value="general-2h">
@@ -52,6 +54,7 @@
             <span class="bk__plan-note">平日のみ</span>
           </span>
           <span class="bk__price"><span class="bk__yen">¥</span>3,500<span class="bk__tax">（税込）</span></span>
+          <span class="bk__reserve" aria-hidden="true">予約する<span class="bk__reserve-arrow">&#8594;</span></span>
         </label>
       </fieldset>
 
@@ -65,6 +68,7 @@
             <span class="bk__badge">おすすめ</span>
           </span>
           <span class="bk__price"><span class="bk__yen">¥</span>6,000<span class="bk__tax">（税込）</span></span>
+          <span class="bk__reserve" aria-hidden="true">予約する<span class="bk__reserve-arrow">&#8594;</span></span>
         </label>
         <label class="bk__plan">
           <input type="radio" name="plan-member" value="member-2h">
@@ -73,6 +77,7 @@
             <span class="bk__plan-name">2時間コース</span>
           </span>
           <span class="bk__price"><span class="bk__yen">¥</span>2,480<span class="bk__tax">（税込）</span></span>
+          <span class="bk__reserve" aria-hidden="true">予約する<span class="bk__reserve-arrow">&#8594;</span></span>
         </label>
         <label class="bk__plan">
           <input type="radio" name="plan-member" value="member-10h">
@@ -81,6 +86,7 @@
             <span class="bk__plan-name">10時間コース</span>
           </span>
           <span class="bk__price"><span class="bk__yen">¥</span>10,000<span class="bk__tax">（税込）</span></span>
+          <span class="bk__reserve" aria-hidden="true">予約する<span class="bk__reserve-arrow">&#8594;</span></span>
         </label>
         <p class="bk__memo">会員料金のご利用には会員登録が必要です。平日個人会員の方は平日のみご利用いただけます。<a href="../plans/membership/">会員プランを見る</a></p>
       </fieldset>
@@ -96,5 +102,6 @@
   </footer>
 
   <script src="../js/book.js" defer></script>
+  <script src="../js/book-plan-link.js" defer></script>
 </body>
 </html>

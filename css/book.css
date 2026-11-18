@@ -178,3 +178,12 @@ html, body { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .bk *, .bk *::before, .bk *::after { transition: none !important; animation: none !important; }
 }
+
+/* No radio circle: the selected row is shown by the gold edge line and tint only. */
+.bk__radio { display: none; }
+.bk__plan { grid-template-columns: 1fr auto; padding-left: 28px; }
+.bk__plan:has(input:focus-visible) { outline: 1px solid var(--bk-gold); outline-offset: -1px; }
+@media (max-width: 560px) {
+  .bk__plan { grid-template-columns: 1fr; padding-left: 20px; }
+  .bk__price { grid-column: 1; }
+}

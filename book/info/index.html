@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>お客様情報 | Thermal Climb Studio Fuji</title>
+<meta name="description" content="ご予約者の情報をご入力ください。">
+<link rel="icon" href="../../icon.png">
+<link rel="stylesheet" href="../../css/0h_nvp_7jebjj.css">
+<link rel="stylesheet" href="../../css/book.css">
+<link rel="stylesheet" href="../../css/book-flow.css">
+</head>
+<body class="bk">
+  <header class="bk__head">
+    <a class="bk__brand" href="../../">
+      <span class="bk__brand-name">Thermal Climb Studio Fuji</span>
+      <span class="bk__brand-sub">日帰りサウナ予約</span>
+    </a>
+  </header>
+
+  <main class="bk__main">
+    <ol class="bk__steps" aria-label="予約の流れ"><li class="is-done">プラン</li><li class="is-done">日時</li><li class="is-current" aria-current="step">お客様情報</li><li>確認</li></ol>
+    <a class="bk__back" href="../date/">&#8592; 日時・人数に戻る</a>
+    <h1 class="bk__title">お客様情報</h1>
+    <form class="bkf" id="bk-info" novalidate>
+      <div class="bkf__field">
+        <fieldset>
+          <legend class="bkf__legend">ご利用回数<span class="bkf__req" aria-hidden="true">*</span></legend>
+          <div class="bkv">
+            <label><input type="radio" name="visit" value="first"><span>初めて</span></label>
+            <label><input type="radio" name="visit" value="repeat"><span>2回目以降</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="bkf__field">
+        <label for="bk-name">代表者お名前<span class="bkf__req" aria-hidden="true">*</span></label>
+        <input class="bk__input" id="bk-name" name="name" type="text" autocomplete="name" placeholder="山田 太郎" required maxlength="60" aria-describedby="bk-err-name">
+        <p class="bkf__err" id="bk-err-name" hidden></p>
+      </div>
+      <div class="bkf__field">
+        <label for="bk-kana">フリガナ</label>
+        <input class="bk__input" id="bk-kana" name="kana" type="text" placeholder="ヤマダ タロウ" maxlength="60" aria-describedby="bk-err-kana">
+        <p class="bkf__err" id="bk-err-kana" hidden></p>
+      </div>
+      <div class="bkf__field">
+        <label for="bk-tel">電話番号<span class="bkf__req" aria-hidden="true">*</span></label>
+        <input class="bk__input" id="bk-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="090-1234-5678" required maxlength="20" aria-describedby="bk-err-tel">
+        <p class="bkf__err" id="bk-err-tel" hidden></p>
+      </div>
+      <div class="bkf__field">
+        <label for="bk-email">メールアドレス<span class="bkf__req" aria-hidden="true">*</span></label>
+        <input class="bk__input" id="bk-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="example@email.com" required maxlength="120" aria-describedby="bk-err-email">
+        <p class="bkf__err" id="bk-err-email" hidden></p>
+      </div>
+      <button type="button" class="bkf__link" id="bk-coupon-toggle" aria-expanded="false" aria-controls="bk-coupon-field">クーポンコードをお持ちの方</button>
+      <div class="bkf__field" id="bk-coupon-field" hidden>
+        <label for="bk-coupon">クーポンコード</label>
+        <input class="bk__input" id="bk-coupon" name="coupon" type="text" autocomplete="off" maxlength="30" aria-describedby="bk-err-coupon">
+        <p class="bkf__err" id="bk-err-coupon" hidden></p>
+      </div>
+      <button type="submit" class="bk__next bk__wide">確認画面へ<span aria-hidden="true" class="bk__arrow">&#8594;</span></button>
+    </form>
+  </main>
+
+  <footer class="bk__foot">
+    <p>お電話でのご予約・お問い合わせ：<a href="tel:08063301447">080-6330-1447</a>（10:00〜20:00／火曜定休）</p>
+    <p>お支払いは当日、店頭にてお願いいたします。</p>
+  </footer>
+
+  <script src="../../js/book-data.js"></script>
+  <script src="../../js/book-info.js" defer></script>
+</body>
+</html>

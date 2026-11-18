@@ -1,0 +1,60 @@
+/* Shared floating header for sub pages — same look as the top page (copied from index.html inline style). */
+/* Header floats over the page: no bar, logo and tag-style menu stand on their own */
+#site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: transparent; border-bottom: 0;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+#site-header > div {
+  max-width: none; height: auto;
+  padding: clamp(8px, 1.2vw, 18px) clamp(16px, 2vw, 32px) 0 clamp(4px, .6vw, 12px);
+  align-items: flex-start;
+}
+#site-header > div > a img {
+  height: clamp(72px, 8.5vw, 124px); width: auto;
+  filter: drop-shadow(0 1px 8px rgba(0,0,0,.45));
+}
+#site-header nav {
+  gap: clamp(12px, 1.6vw, 24px);
+  margin-top: clamp(26px, 2.9vw, 42px);
+  font-size: clamp(13px, 1.05vw, 16px);
+}
+/* Tag-shaped links: thin frame with a cut bottom-right corner */
+#site-header nav a {
+  --c: 9px;
+  position: relative; display: inline-flex; align-items: center; gap: .9em;
+  padding: .55em 1.45em; letter-spacing: .14em;
+  color: #fff; background: none; border: 0; border-radius: 0;
+  text-shadow: 0 1px 10px rgba(0,0,0,.55);
+  transition: color .25s ease;
+}
+#site-header nav a::before {
+  content: ""; position: absolute; inset: 0;
+  border: 1px solid rgba(255,255,255,.8);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%);
+  box-shadow: inset 0 0 0 0 transparent;
+  transition: background-color .25s ease, border-color .25s ease;
+  pointer-events: none;
+}
+#site-header nav a::after {
+  content: ""; position: absolute;
+  width: calc(var(--c) * 1.4142); height: 1px;
+  right: calc(var(--c) / 2 - var(--c) * .7071); bottom: calc(var(--c) / 2 - .5px);
+  background: rgba(255,255,255,.8); transform: rotate(-45deg);
+  pointer-events: none;
+}
+#site-header nav a:hover::before { background-color: rgba(255,255,255,.12); }
+#site-header nav a > * { position: relative; z-index: 1; }
+#site-header nav a::before, #site-header nav a::after { z-index: 0; }
+/* Booking: gold frame + arrow */
+#site-header nav a[href$="book/"] { color: #e3c56d; padding-left: 1.8em; padding-right: 1.1em; }
+#site-header nav a[href$="book/"]::before { border-width: 2px; border-color: #e3c56d; }
+#site-header nav a[href$="book/"]::after { background: #e3c56d; height: 2px; }
+#site-header nav a[href$="book/"]:hover { color: #000; text-shadow: none; }
+#site-header nav a[href$="book/"]:hover::before { background-color: #e3c56d; }
+#site-header .nav-arrow { width: 2.2em; height: .7em; transition: transform .25s ease; }
+#site-header nav a[href$="book/"]:hover .nav-arrow { transform: translateX(3px); }
+#site-header button { margin-top: clamp(16px, 4vw, 24px); filter: drop-shadow(0 1px 6px rgba(0,0,0,.6)); }
+
+/* Text pages (no hero photo): push the content below the floating logo + menu. */
+.site-header-offset { padding-top: calc(clamp(72px, 8.5vw, 124px) + clamp(8px, 1.2vw, 18px)); }

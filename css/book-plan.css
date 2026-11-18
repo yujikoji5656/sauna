@@ -1,0 +1,44 @@
+/* Booking step 1: a "予約する" button on every plan row; "おすすめ" as thin gold text (no pill). */
+.bk__plan { grid-template-columns: 1fr auto auto; column-gap: clamp(16px, 3vw, 36px); }
+
+.bk__badge {
+  display: inline-block;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--bk-gold);
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: .32em;
+  line-height: 1.4;
+  transform: scaleY(1.18);
+  transform-origin: left center;
+}
+.bk__badge::before { content: none; }
+
+.bk__reserve {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border: 1px solid rgba(244, 239, 232, .7);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: .2em;
+  white-space: nowrap;
+  transition: background .3s var(--bk-ease), color .3s var(--bk-ease), border-color .3s var(--bk-ease);
+}
+.bk__reserve-arrow { transition: transform .3s var(--bk-ease); }
+.bk__plan:hover .bk__reserve { background: #fff; color: #111; border-color: #fff; }
+.bk__plan:hover .bk__reserve-arrow { transform: translateX(3px); }
+
+@media (max-width: 560px) {
+  .bk__plan { grid-template-columns: 1fr auto; row-gap: 14px; }
+  .bk__plan-body { grid-column: 1 / -1; }
+  .bk__price { grid-column: 1; }
+  .bk__reserve { grid-column: 2; padding: 10px 16px; font-size: 14px; }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>日時・人数の選択 | Thermal Climb Studio Fuji</title>
+<meta name="description" content="ご利用人数・日付・開始時間をお選びください。">
+<link rel="icon" href="../../icon.png">
+<link rel="stylesheet" href="../../css/0h_nvp_7jebjj.css">
+<link rel="stylesheet" href="../../css/book.css">
+<link rel="stylesheet" href="../../css/book-flow.css">
+</head>
+<body class="bk">
+  <header class="bk__head">
+    <a class="bk__brand" href="../../">
+      <span class="bk__brand-name">Thermal Climb Studio Fuji</span>
+      <span class="bk__brand-sub">日帰りサウナ予約</span>
+    </a>
+  </header>
+
+  <main class="bk__main">
+    <ol class="bk__steps" aria-label="予約の流れ"><li class="is-done">プラン</li><li class="is-current" aria-current="step">日時</li><li>お客様情報</li><li>確認</li></ol>
+    <a class="bk__back" href="../">&#8592; プラン選択に戻る</a>
+    <div id="bk-date">
+      <div class="bk__box">
+        <p class="bkp__label">選択中のプラン</p>
+        <p class="bkp__name" id="bk-plan-name"></p>
+        <p class="bkp__price" id="bk-plan-price"></p>
+        <p class="bkp__note" id="bk-plan-note"></p>
+      </div>
+
+      <h2 class="bk__h2">ご利用人数</h2>
+      <p class="bk__lead">男女別のサウナ室・ロッカーをご用意しています。それぞれの人数をご入力ください（合計最大6名）。</p>
+      <div class="bkg">
+        <div class="bk__box"><label class="bkg__m" for="bk-male">男性</label><select class="bk__select" id="bk-male"></select></div>
+        <div class="bk__box"><label class="bkg__f" for="bk-female">女性</label><select class="bk__select" id="bk-female"></select></div>
+      </div>
+
+      <h2 class="bk__h2">日付を選択</h2>
+      <div class="bk__box bkc">
+        <div class="bkc__head">
+          <button type="button" class="bkc__nav" id="bk-cal-prev">&#8592; 前月</button>
+          <p class="bkc__month" id="bk-cal-month" aria-live="polite"></p>
+          <button type="button" class="bkc__nav" id="bk-cal-next">次月 &#8594;</button>
+        </div>
+        <div class="bkc__week" aria-hidden="true"><span class="is-sun">日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span class="is-sat">土</span></div>
+        <div class="bkc__grid" id="bk-cal-grid"></div>
+        <p class="bkc__legend"><s>10</s>のように線が引かれた日はご予約いただけません（火曜定休）</p>
+      </div>
+      <p class="bk__picked" id="bk-picked" hidden></p>
+
+      <div id="bk-times-wrap" hidden>
+        <h2 class="bk__h2">開始時間を選択</h2>
+        <div class="bkt" id="bk-times"></div>
+      </div>
+      <p class="bk__box bk__span" id="bk-span" hidden></p>
+
+      <button type="button" class="bk__next bk__wide" id="bk-date-next" aria-disabled="true">次へ<span aria-hidden="true" class="bk__arrow">&#8594;</span></button>
+      <p class="bk__error" id="bk-date-error" role="alert" hidden></p>
+    </div>
+  </main>
+
+  <footer class="bk__foot">
+    <p>お電話でのご予約・お問い合わせ：<a href="tel:08063301447">080-6330-1447</a>（10:00〜20:00／火曜定休）</p>
+    <p>お支払いは当日、店頭にてお願いいたします。</p>
+  </footer>
+
+  <script src="../../js/book-data.js"></script>
+  <script src="../../js/book-date.js" defer></script>
+</body>
+</html>
