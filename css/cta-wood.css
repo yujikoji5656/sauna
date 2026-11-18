@@ -1,0 +1,15 @@
+/* Closing CTA ("さぁ、サウナを冒険しよう。"): blurred sauna-wood texture behind the copy. */
+.cta-wood { position: relative; overflow: hidden; isolation: isolate; }
+.cta-wood::before {
+  content: ""; position: absolute; inset: -40px; z-index: -2;
+  background: url(../images/kaze-01.jpg) center / cover no-repeat;
+  filter: blur(14px) brightness(0.55) saturate(1.15);
+  transform: scale(1.08);
+}
+/* Darken toward the middle so the white heading stays readable; edges keep the warm wood glow. */
+.cta-wood::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(60% 75% at 50% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.05) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.35));
+}

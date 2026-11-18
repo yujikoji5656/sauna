@@ -1,0 +1,25 @@
+/* Header menu split: page links on the left (underlined), 施設情報 / 会員加入 / ご予約 on the right (framed). */
+@media (min-width: 1024px) {
+  #site-header nav { flex: 1; margin-left: clamp(20px, 3vw, 48px); }
+
+  /* order: left group, then a spacer before the framed group */
+  #site-header nav a[href$="#features"] { order: 1; }
+  #site-header nav a[href$="#saunas"]   { order: 2; }
+  #site-header nav a[href$="#plans"]    { order: 3; }
+  #site-header nav a[href$="#access"]   { order: 4; }
+  #site-header nav a[href$="facility/"] { order: 5; margin-left: auto; }
+  #site-header nav a[href$="membership/"] { order: 6; }
+  #site-header nav a[href$="book/"]     { order: 7; }
+
+  /* Left group: no frame, a thin underline instead */
+  #site-header nav a[href*="#"] { padding-left: .2em; padding-right: .2em; }
+  #site-header nav a[href*="#"]::before {
+    top: auto; bottom: .2em; height: 1px;
+    border: 0; clip-path: none;
+    background: rgba(255, 255, 255, .8);
+    transform-origin: left; transition: background-color .25s ease, transform .35s ease;
+  }
+  #site-header nav a[href*="#"]::after { content: none; }
+  #site-header nav a[href*="#"]:hover { color: #e3c56d; }
+  #site-header nav a[href*="#"]:hover::before { background-color: #e3c56d; }
+}
