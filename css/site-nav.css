@@ -23,3 +23,32 @@
   #site-header nav a[href*="#"]:hover { color: #e3c56d; }
   #site-header nav a[href*="#"]:hover::before { background-color: #e3c56d; }
 }
+
+#site-header:has(.facility-menu-toggle) :is(a, button):focus-visible {
+  outline: 2px solid #e3c56d;
+  outline-offset: 4px;
+}
+
+@media (max-width: 1023px) {
+  #site-header .facility-menu-toggle {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  #site-header #facility-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 16px;
+    left: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 0;
+    padding: 16px;
+    background: #17100d;
+  }
+
+  #site-header:has(.facility-menu-toggle[aria-expanded="true"]) #facility-menu { display: flex; }
+}
